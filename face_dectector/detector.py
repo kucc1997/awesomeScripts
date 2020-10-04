@@ -16,12 +16,12 @@ def detector(img):
     )  # Convert Color Image into Black White Image for Processing
 
     haar_cascades = cv2.CascadeClassifier(
-        cv2.data.haarcascades + "haarcascade_frontalface_default.xml"  # Load Detectors
+        cv2.data.haarcascades +
+        "haarcascade_frontalface_default.xml"  # Load Detectors
     )
     detected_img = haar_cascades.detectMultiScale(grey_img, 1.3, 5)  # Detect
 
     box_lst = []
-
 
     if detected_img is not None:
         for (x, y, w, h) in detected_img:
@@ -35,8 +35,8 @@ def draw_show(img, data):
             frame = cv2.rectangle(
                 img, (face[0], face[1]), (face[2], face[3]), (0, 255, 0), 2
             )
-
-            cv2.imshow("Face Detector", frame)  # Show Processed image with bounding box
+            # Show Processed image with bounding box
+            cv2.imshow("Face Detector", frame)
             cv2.waitKey(0)  # Wait for a key to close
 
 
